@@ -7,7 +7,7 @@ Test steps:
 
 Expected results:
 1. Create page is opened.
-2. Link to the main page "DailyTodo.org" is visible at the top.
+2. Link to the home page "DailyTodo.org" is visible at the top.
 3. Under the link text "Start adding your tasks - one on each line." is displayed.
 4. Empty form for entering new tasks is displayed.
 5. Button "Save tasks" is displayed.
@@ -22,7 +22,7 @@ Test steps:
 
 Expected results:
 1. Edit page is opened.
-2. Link to the main page "DailyTodo.org" is visible at the top.
+2. Link to the home page "DailyTodo.org" is visible at the top.
 3. Under the link input field is displayed with text "Tasks for today".
 4. Empty form is displayed.
 5. Button "Save tasks" is displayed.
@@ -37,7 +37,7 @@ Test steps:
 
 Expected results:
 1. View page is opened.
-2. Link to the main page "DailyTodo.org" is visible at the top.
+2. Link to the home page "DailyTodo.org" is visible at the top.
 3. Under the link input field is displayed with text "Tasks for today".
 4. 3 rows with entered lines are displayed as tasks.
 5. Checkboxes are displayed for each line and are unchecked.

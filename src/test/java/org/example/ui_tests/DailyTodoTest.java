@@ -5,74 +5,77 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selenide.$;
+import static org.example.pages.CreatePage.homePageLink;
+import static org.example.pages.CreatePage.*;
+import static org.example.pages.EditPage.nameInput;
+import static org.example.pages.ViewPage.*;
 
 public class DailyTodoTest extends CoreTest {
 
     @Test
     @DisplayName("Scenario 1: Validate Create page UI elements.")
     void checkCreatePageUI() {
-        $("#start").click();
+        startButton.click();
 
-        $("h1 a").shouldBe(visible)
+        homePageLink.shouldBe(visible)
                 .shouldHave(text("DailyTodo.org"))
                 .shouldHave(href("/"));
 
-        $("form").shouldBe(visible)
+        formLabel.shouldBe(visible)
                         .shouldHave(text("Start adding your tasks - one on each line."));
 
-        $("textarea").shouldBe(visible)
+        tasksInputField.shouldBe(visible)
                 .shouldBe(empty);
 
-        $("p input").shouldBe(visible)
+        saveButton.shouldBe(visible)
                 .shouldHave(value("Save tasks"));
 
-        $("p a").shouldBe(visible)
+        cancelButton.shouldBe(visible)
                 .shouldHave(text("Cancel"));
     }
 
     @Test
     @DisplayName("Scenario 2: Validate Edit page UI elements.")
     void checkEditPageUI() {
-        $("#start").click();
-        $("p input").click();
-        $("td a").click();
+        startButton.click();
+        saveButton.click();
+        editButton.click();
 
-        $("h1 a").shouldBe(visible)
+        homePageLink.shouldBe(visible)
                 .shouldHave(text("DailyTodo.org"))
                 .shouldHave(href("/"));
 
-        $(".input-title").shouldBe(visible)
+        nameInput.shouldBe(visible)
                 .shouldHave(value("Tasks for today"));
 
-        $("textarea").shouldBe(visible)
+        tasksInputField.shouldBe(visible)
                 .shouldBe(empty);
 
-        $("p input").shouldBe(visible)
+        saveButton.shouldBe(visible)
                 .shouldHave(value("Save tasks"));
 
-        $("p a").shouldBe(visible)
+        cancelButton.shouldBe(visible)
                 .shouldHave(text("Cancel"));
     }
 
     @Test
     @DisplayName("Scenario 3: Check that created tasks are saved and can be viewed.")
     void checkCreateTaskWorks() {
-        $("#start").click();
+        startButton.click();
 
-        $("textarea").val("1").pressEnter()
+        tasksInputField.val("1").pressEnter()
                 .append("2").pressEnter()
                 .append("3");
 
-        $("p input").click();
+        saveButton.click();
 
-        $("tbody").findAll("tr").shouldHave(CollectionCondition.size(3));
+        tasksList.shouldHave(CollectionCondition.size(3));
 
-        $("[class*='t1']").shouldHave(text("1"));
-        $("[class*='t2']").shouldHave(text("2"));
-        $("[class*='t3']").shouldHave(text("3"));
+        firstTask.shouldHave(text("1"));
+        secondTask.shouldHave(text("2"));
+        thirdTask.shouldHave(text("3"));
 
-        $("tbody").findAll("[class*='current']").shouldHave(CollectionCondition.size(3))
+        checkboxList.shouldHave(CollectionCondition.size(3))
                 .stream()
                 .map(element -> element.shouldHave(attribute("title", "Check if you've finished this task for today")))
                 .forEach(element -> element.shouldBe(visible));
