@@ -1,5 +1,6 @@
 package org.example.ui_tests;
 
+import com.codeborne.selenide.Browser;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Screenshots;
 import com.codeborne.selenide.junit5.TextReportExtension;
@@ -25,7 +26,8 @@ public class CoreTest {
     public static void setUp() {
         closeWebDriver();
         Configuration.baseUrl = "https://dailytodo.org/";
-        Configuration.headless = false;
+        Configuration.headless = true;
+        Configuration.browser = "chrome";
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
     }
 
