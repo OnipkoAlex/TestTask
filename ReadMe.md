@@ -12,6 +12,7 @@ Expected results:
 4. Empty form for entering new tasks is displayed.
 5. Button "Save tasks" is displayed.
 6. Button "Cancel" is displayed.
+___
 
 ### **Scenario 2**: Validate Edit page UI elements.
 Test steps:
@@ -27,6 +28,7 @@ Expected results:
 4. Empty form is displayed.
 5. Button "Save tasks" is displayed.
 6. Button "Cancel" is displayed.
+___
 
 ### **Scenario 3**: Check that created tasks are saved and can be viewed.
 Test steps:
@@ -41,6 +43,7 @@ Expected results:
 3. Under the link input field is displayed with text "Tasks for today".
 4. 3 rows with entered lines are displayed as tasks.
 5. Checkboxes are displayed for each line and are unchecked.
+___
 
 ### **Scenario 4**: Check that checkboxes are reset when task is changed.
 Test steps:
