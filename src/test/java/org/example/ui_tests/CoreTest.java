@@ -1,6 +1,5 @@
 package org.example.ui_tests;
 
-import com.codeborne.selenide.Browser;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Screenshots;
 import com.codeborne.selenide.junit5.TextReportExtension;

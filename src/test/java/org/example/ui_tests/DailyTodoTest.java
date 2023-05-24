@@ -22,7 +22,7 @@ public class DailyTodoTest extends CoreTest {
                 .shouldHave(href("/"));
 
         formLabel.shouldBe(visible)
-                        .shouldHave(text("Start adding your tasks - one on each line."));
+                .shouldHave(text("Start adding your tasks - one on each line."));
 
         tasksInputField.shouldBe(visible)
                 .shouldBe(empty);
